@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, ActivityIndicator } from "react-native";
-import { router } from "expo-router";
+import { router, } from "expo-router";
+import { Link } from "expo-router";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebaseConfig";
 import { set } from "@/storage/asyncStorage";
@@ -39,6 +40,11 @@ export default function Login() {
       <TouchableOpacity onPress={handleLogin} style={{ backgroundColor: "#2e78b7", padding: 14, borderRadius: 8, alignItems: "center" }}>
         {loading ? <ActivityIndicator color="white" /> : <Text style={{ color: "white" }}>Sign In</Text>}
       </TouchableOpacity>
+      
+      <Link href="/(auth)/register" style={{ marginTop: 16, textAlign: "center", color: "#2e78b7" }}>
+        Belum punya akun? Register
+      </Link>
+      
     </View>
   );
 }
